@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html class="overflow">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Веселые прилипалы 4</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.css" media="all">
+    <link rel="stylesheet" href="css/common.css?v11" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/libs/parallax.min.js"></script>
+    <script src="js/libs/phone-mask.js"></script>
+    <script src="js/libs/jquery.cloud9carousel.js"></script>
+    <script src="js/libs/slick.js"></script>
+
+    <script>
+        var currentArea = {{ geo.region.id }};
+        var shopsArr = {{ shops|json_encode()|raw }};
+        var citiesArr = {{ cities|json_encode()|raw }};
+        var productsObj = {{ products|json_encode()|raw }};
+        var gocodeName = "{{ geo.go }}";
+    </script>
+    <script src="js/main.js?v10"></script>
+    <script src="js/map.js?v10"></script>
+</head>
+<body class="overflow transitions">
+
+<div class="js-loader b-loader">
+    <span class="b-loader__logo"></span>
+    <span class="js-percent-loader b-loader__percent"></span>
+</div>
+
+<div class="js-menu-overlay b-menu-overlay">
+    <div class="js-menu b-menu-box">
+        <div class="b-menu-box__hero b-menu-box__hero_bottom"></div>
+        <div class="b-menu-box__hero b-menu-box__hero_top"></div>
+        <div class="b-menu-box__wrapper-hidden">
+            <div class="js-menu-wrapper b-menu-box__wrapper">
+                <span class="js-menu-border b-menu-box__border"></span>
+                <a href="#" class="js-menu-close b-menu__close"></a>
+
+                <span class="b-menu__title">Меню</span>
+
+                <ul class="b-menu">
+                    <li>
+                        <a href="section-heroes" class="js-menu-link b-menu__link active">Знакомство с Героями</a>
+                    </li>
+                    <li>
+                        <a href="section-app" class="js-menu-link b-menu__link">Приложение</a>
+                    </li>
+                    <li>
+                        <a href="section-play" class="js-menu-link b-menu__link">Играть</a>
+                    </li>
+                    <li>
+                        <a href="section-products" class="js-menu-link b-menu__link">Товары-спонсоры</a>
+                    </li>
+                    <li>
+                        <a href="section-barter" class="js-menu-link b-menu__link">Обменять прилипал</a>
+                    </li>
+                    <li>
+                        <a href="section-shops" class="js-menu-link b-menu__link">Магазины</a>
+                    </li>
+                </ul>
+
+                <a href="#" class="js-promo-code-menu-call b-menu__button">
+                    <span>Ввести промокод</span>
+                </a>
+
+                <ul class="b-menu-box__download">
+                    <li>
+                        <a href="./i/Общие правила акции.pdf" download>Правила акции</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="b-header">
+    <a href="#" class="b-header__d-logo"></a>
+
+    <a href="#" class="b-product-logo"></a>
+
+    <a href="#" class="js-burger-call b-burger"></a>
+</header>
+
+<div class="b-content">
+
+    <section class="b-section-top">
+        <div class="b-section-top__white"></div>
+        <div class="b-section-top__box">
+            <div class="js-parallax b-section-top__buildings">
+                <div data-depth="0.15" data-friction-x=".01" data-friction-y=".01" ></div>
+            </div>
+            <div class="js-parallax b-section-top__wrapper">
+                <div class="b-section-top__sky"></div>
+                <div data-depth="0.15" data-friction-x=".01" data-friction-y=".01" class="b-section-top__bg"></div>
+            </div>
+        </div>
+        <div class="js-parallax b-section-top__hero-box">
+            <div class="b-section-top__hero b-section-top__hero_1"></div>
+            <div data-pointer-events="true" data-id="1" data-text="0" data-depth="0.08" class="js-hero-click b-section-top__hero b-section-top__hero_click b-section-top__hero_2">
+                <a href="#" class="js-promo-code-call b-section-top__hero-cloud">
+                    <div>
+                        <p>Есть промокод? <i>Получи приз!</i></p>
+                    </div>
+                </a>
+            </div>
+            <div data-pointer-events="true" data-depth-x="0.2" data-depth-y="0.15" data-friction-x=".01" data-friction-y=".01" class="b-section-top__hero b-section-top__hero_3">
+                <a href="#" class="js-call-video-main b-section-top__hero-cloud">
+                    Этому городу
+                    нужен герой!
+                </a>
+            </div>
+            <div data-pointer-events="true" data-id="2" data-text="0" class="js-hero-click b-section-top__hero b-section-top__hero_click b-section-top__hero_4">
+                <div class="b-section-top__hero-cloud">
+                    <div>
+                        <p>
+                            <a href="section-products" class="js-scroll-to">
+                                Получи <i>веселого<br>прилипалу</i> за&nbsp;каждые 500&nbsp;рублей в&nbsp;чеке!
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div data-pointer-events="true" datb-promo-code_texta-id="3" data-text="0" data-depth="0.05" class="js-hero-click b-section-top__hero b-section-top__hero_click b-section-top__hero_5">
+                <div class="b-section-top__hero-cloud">
+                    <div>
+                        <p><a href="section-app" class="js-scroll-to">Прилипалы-супергерои прямо <i>в&nbsp;твоем телефоне!</i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-heroes" class="js-section-nav js-section-carousel b-section-carousel">
+        <h2 class="b-section-carousel__title">Познакомься c персонажами прилипал</h2>
+
+        <div class="js-carousel-heroes b-heroes-carousel">
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic b-heroes-carousel__pic-1">
+                    <img src="i/heroes-carousel/1-octopus.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Оракул Октопус</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Мегаинтеллект</i>
+                        </p>
+                        <p>
+                            Это &laquo;мозг&raquo; каждой операции. Проработать план спасения мира для Оракула Октопуса так&nbsp;же легко, как и&nbsp;собрать кубик Рубика за&nbsp;пару секунд.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/2-owl.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Зыркач</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Суперзрение</i>
+                        </p>
+                        <p>
+                            Зыркач&nbsp;- самый лучший в&nbsp;мире сыщик. Он&nbsp;умеет видеть&nbsp;то, что другие даже не&nbsp;замечают: улики, подсказки, а&nbsp;еще он&nbsp;может смотреть сквозь стены!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/3-fox.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Алмазный Ух</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Алхимия</i>
+                        </p>
+                        <p>
+                            Никто точно не&nbsp;знает, сколько лет Алмазному Уху. Ходят слухи, что он&nbsp;открыл секрет философского камня и&nbsp;стал бессмертным! Он&nbsp;легко может смешать любой препарат или вырастить кристалл. Его девиз&nbsp;- химия легко победит зло!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/4-frog.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Мыслехват</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Телепатия</i>
+                        </p>
+                        <p>
+                            Красный шлем помогает смешной лягушке Мыслехвату читать мысли, поэтому злодеи в&nbsp;его присутствии даже думать боятся о&nbsp;том, чтобы сделать что-то злодейское!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/5-pig-boy.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Пышка-вспышка</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Компьютерные технологии</i>
+                        </p>
+                        <p>
+                            Вспышка настоящий разведчик: он&nbsp;умело маскируется, изображая фотографа-любителя. А&nbsp;на&nbsp;самом деле под видом камеры он&nbsp;скрывает супермощный компьютер, который может взломать любую злодейскую систему безопасности за&nbsp;считаные минуты.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/6-coala.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Ушастик</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Контроль времени</i>
+                        </p>
+                        <p>
+                            Когда Ушастик играет быстро на&nbsp;своей гармошке, все вокруг начинает ускорятся. А&nbsp;если он&nbsp;затягивает мелодию, то&nbsp;все вокруг замедляется. И&nbsp;все это благодаря волшебной гармошке, которая умеет контролировать время.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/7-parrot.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Рокопопс</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Управление звуковой волной</i>
+                        </p>
+                        <p>
+                            Рокопопс&nbsp;- настоящая суперзвезда. Звук его гитары сбивает с&nbsp;ног злодеев и&nbsp;лишает их&nbsp;сил. В&nbsp;свободное от&nbsp;спасения мира время они вместе с&nbsp;Котэ закатывают грандиозные концерты, собирая стадионы поклонников.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/8-rabbit.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Фокус-Покус</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Создание иллюзий</i>
+                        </p>
+                        <p>
+                            Заклинание &laquo;Абракадабра!&raquo;, или счастливая кроличья лапка&nbsp;- до&nbsp;сих пор никто не&nbsp;может разгадать секреты иллюзий Фокуса-Покуса. А&nbsp;может быть, и&nbsp;нет никакого секрета, просто он&nbsp;настоящий волшебник?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/9-cat.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Котэ</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Подражание звукам</i>
+                        </p>
+                        <p>
+                            Звук истребителя, щебетание птиц или белый шум&nbsp;- Котэ легко изобразит любой звук! Благодаря суперголосу он&nbsp;может обхитрить любого злодея или подать сигнал друзьям&nbsp;- супергероям. Котэ запел&nbsp;- пора спасать мир!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/10-snake.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Шумный ш-ш-шон</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Гипноз</i>
+                        </p>
+                        <p>
+                            Настоящий меломан. Он&nbsp;настолько любит музыку, что может с&nbsp;ее&nbsp;помощью загипнотизировать кого угодно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/11-manul.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Сарделькин</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Бесшумность</i>
+                        </p>
+                        <p>
+                            Ходит настолько бесшумно, что для многих загадка: он&nbsp;уже ушел или все еще здесь? А&nbsp;уж&nbsp;если Котофей Сосисыч почувствует запах колбасы, то&nbsp;будьте уверены, что совсем скоро она бесследно исчезнет!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/12-raccoon.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Мистер Плут</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Ловкость и скорость</i>
+                        </p>
+                        <p>
+                            Мистер Плут может внезапно появиться и&nbsp;так&nbsp;же бесследно исчезнуть в&nbsp;любой момент! Как настоящий ниндзя, он&nbsp;очень ловкий и&nbsp;быстрый.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/13-dog.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Резвый Рекс</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Острый нюх, быстрые ролики</i>
+                        </p>
+                        <p>
+                            Единственный, кто может за&nbsp;несколько секунд взять любой след и&nbsp;мигом догнать его обладателя на&nbsp;своих суперроликах.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/14-duck.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Супердак</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Восточные единоборства</i>
+                        </p>
+                        <p>
+                            Супердак такой милый и&nbsp;Пушистый, что никому даже в&nbsp;голову не&nbsp;придет его обидеть. И&nbsp;правильно&nbsp;- ведь он&nbsp;настоящий мастер единоборств! Любому злодею не&nbsp;поздоровится, если Супердак узнает о&nbsp;его коварных планах!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/15-hamster.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Гантелькин</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Суперсила</i>
+                        </p>
+                        <p>
+                            С&nbsp;первого взгляда все думают, что он&nbsp;просто маленький хомяк. И&nbsp;как сильно они ошибаются! Любому злодею не&nbsp;поздоровится, если он&nbsp;попадет под мощь суперсилы Гантелькина!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/16-sheep.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Кнок-нокаут</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Суперудар</i>
+                        </p>
+                        <p>
+                            Среди злодеев ходят слухи, что Кнок-нокаут&nbsp;- обладатель самого сильного удара среди супергероев. Но&nbsp;проверять, правда&nbsp;ли это, никто не&nbsp;хочет.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/17-hedgehog.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Космоеж</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Супербыстрый полет</i>
+                        </p>
+                        <p>
+                            Космоеж с&nbsp;помощью своего реактивного ранца быстрее всех летает над городом и&nbsp;раньше всех обо всем узнает. Если где-то случилась беда, он&nbsp;будет на&nbsp;месте первым!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/18-tortoise.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Бригадирро</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Пробивная сила</i>
+                        </p>
+                        <p>
+                            Команда супергероев никогда не&nbsp;встречает препятствий, ведь все их&nbsp;очень быстро разрушает Бригадирро при помощи своего молотка. Стена, забор или гора&nbsp;- один взмах молотком, и&nbsp;путь свободен!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/19-squirrel.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Капитан Бро</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Мощный щит</i>
+                        </p>
+                        <p>
+                            Если миру грозит опасность, а&nbsp;остальные суперприлипалы бессильны, то&nbsp;в&nbsp;дело вступает Капитан Бро! Ведь именно его щит может отразить абсолютно любую угрозу.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/20-mouse.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Фиалка</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Сонная пыльца</i>
+                        </p>
+                        <p>
+                            Очаровательная Фиалка никогда не&nbsp;даст себя в&nbsp;обиду. Ведь пыльца с&nbsp;ее&nbsp;любимого цветочка может за&nbsp;секунду усыпить кого угодно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/21-pig-girl.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Сеньорита</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Суперкрасота</i>
+                        </p>
+                        <p>
+                            И&nbsp;как в&nbsp;нее не&nbsp;влюбиться? Сеньорита сражает наповал благодаря своей суперспособности&nbsp;- силе красоты. Когда она танцует свой танец, от&nbsp;нее просто невозможно отвести взгляд.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/22-alpaca.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Опасная Аль-Пака</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Лазерное зрение</i>
+                        </p>
+                        <p>
+                            Говорят, что именно благодаря ей&nbsp;появилось выражение &laquo;прожигать взглядом&raquo;. Стоит Аль-Паке снять свои очки, как злодеи в&nbsp;страхе разбегаются от&nbsp;ее&nbsp;лазерного зрения! Особенно это удобно на&nbsp;пикнике, ведь именно она отлично разжигает костер!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/23-horse.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Донни Пони</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Обезоруживающий магнит</i>
+                        </p>
+                        <p>
+                            Донни Пони такая милая и&nbsp;добрая! Пока лучезарная улыбка отвлекает врага, магнит в&nbsp;считаные секунды притянет его злодейское оружие.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b-heroes-carousel__item">
+                <div class="b-heroes-carousel__pic">
+                    <img src="i/heroes-carousel/24-hippo.png" alt="">
+                </div>
+                <div class="b-heroes-carousel__text">
+                    <div class="b-heroes-carousel__text-wrapper">
+                        <h6>
+                            <span>Бо-бо Балеро</span>
+                        </h6>
+                        <p>
+                            <i>Способность: Вызов землетрясения</i>
+                        </p>
+                        <p>
+                            Если у&nbsp;вас под ногами трясется земля, значит, совсем рядом Бо-бо Балеро снова отрабатывает балетное&nbsp;па. Зрелище захватывающее&nbsp;- и&nbsp;очень отвлекающее!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-section-carousel__count">
+            <div>
+                <span class="js-carousel-heroes-num"></span>/24
+            </div>
+        </div>
+    </section>
+
+    <section id="section-app" class="js-section-nav u-clear-fix b-section-comics">
+
+        <div class="b-comics b-comics_1">
+            <div class="b-comics__hero b-comics__hero-1">
+                <div class="b-comics__hero-text">
+                    <p>Сколько можно играть!?</p>
+                </div>
+            </div>
+            <div class="b-comics__hero b-comics__hero-2">
+                <div class="b-comics__hero-text">
+                    <p>сколько нужно! чтобы получить подарок!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-comics b-comics_2">
+            <div class="b-comics__phone-wrapper">
+                <div class="b-comics__phone">
+                    <div></div>
+                </div>
+            </div>
+            <div class="b-comics__hero b-comics__hero-3">
+                <div class="b-comics__hero-text">
+                    <p>Качай «ВЕСЕЛЫЕ ПРИЛИПАЛЫ&nbsp;4. Супергерои» на&nbsp;свой&nbsp;телефон
+                    </p>
+                    <a href="https://play.google.com/store/apps/details?id=ru.Preoparty.Priliparty" target="_blank" class="b-comics__button-gp"></a>
+                    <a href="https://itunes.apple.com/us/app/%D1%81%D1%83%D0%BF%D0%B5%D1%80%D0%B3%D0%B5%D1%80%D0%BE%D0%B8-%D0%B2%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5-%D0%BF%D1%80%D0%B8%D0%BB%D0%B8%D0%BF%D0%B0%D0%BB%D1%8B/id1436432430?l=ru&ls=1&mt=8" target="_blank" class="b-comics__button-appstore"></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="section-products" class="js-section-nav b-section-products">
+
+        <div class="b-section-products__content">
+
+            <h2 class="b-section-products__title">
+                Получи еще больше игрушек
+            </h2>
+
+            <a href="./i/section-products/Правила%20акции%20_Товары%20Прилипал_.pdf" download class="b-section-products__rules">Правила акции</a>
+
+            <ul class="u-clear-fix b-product-tabs__box">
+                {% for promoaction in promoactions %}
+                <li>
+                    <a href="#" data-type="{{ promoaction.id }}" class="js-product-tab-link b-product-tabs {% if promoaction == promoactions|first %}active{% endif %}">
+                            <span class="b-product-tabs__numbers">
+                                {{ promoaction.title|raw }}
+                            </span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <form action="http://area.php" class="js-area-form b-area-box">
+                <span class="b-area-box__label">Ваш регион:</span>
+                <div class="js-area-select b-dropdown__box">
+                    <div class="b-dropdown">
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop"></span>
+                        <ul class="b-dropdown__sub">
+                            {% for region in regions %}
+                                <li data-id="{{ region.id }}" class="b-dropdown__item">{{ region.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="area" name="area" type="text">
+                </div>
+            </form>
+
+            <div class="b-products__section">
+                {% for promoaction in promoactions %}
+                    <div data-type="{{ promoaction.id }}" class="js-products-tab b-products__tab {% if promoaction == promoactions|first %}show{% endif %}">
+                        <div class="js-products-carousel b-products__carousel"></div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="b-section-products__cloud">
+            Элементарно!<br>
+            Больше товаров -
+            больше прилипал!
+        </div>
+
+    </section>
+
+    <section id="section-play" class="js-section-nav b-section-play">
+
+        <div class="b-section-play__bg-box">
+            <div class="js-parallax b-section-play__bg-wrapper">
+                <div data-depth="0.07" data-friction-x=".01" data-friction-y=".01" class="b-section-play__bg"></div>
+            </div>
+            <div class="js-parallax b-section-play__bg-top_wrapper">
+                <div data-depth="0.07" data-friction-x=".01" data-friction-y=".01" class="b-section-play__bg-top"></div>
+            </div>
+        </div>
+
+        <div class="b-section-play__content">
+            <h2 class="b-section-play__title">Играй с прилипалами</h2>
+            <div class="u-clear-fix b-section-play__numbers-box">
+                <a data-id="1" href="#" class="js-play-number b-section-play__numbers"><span>1</span></a>
+                <a data-id="2" href="#" class="js-play-number b-section-play__numbers"><span>2</span></a>
+                <a data-id="3" href="#" class="js-play-number b-section-play__numbers"><span>3</span></a>
+                <a data-id="4" href="#" class="js-play-number b-section-play__numbers"><span>4</span></a>
+                <a data-id="5" href="#" class="js-play-number b-section-play__numbers"><span>5</span></a>
+                <a data-id="6" href="#" class="js-play-number b-section-play__numbers"><span>6</span></a>
+                <a data-id="7" href="#" class="js-play-number b-section-play__numbers"><span>7</span></a>
+                <a data-id="8" href="#" class="js-play-number b-section-play__numbers"><span>8</span></a>
+                <a data-id="9" href="#" class="js-play-number b-section-play__numbers"><span>9</span></a>
+                <a data-id="10" href="#" class="js-play-number b-section-play__numbers"><span>10</span></a>
+            </div>
+            <div class="js-play-text-insert b-section-play__cloud">
+                <h6>ПРИШЛО ВРЕМЯ ИГРЫ!</h6>
+                <p>качай и распечатывай задания
+                    от прилипал, делись своими
+                    результатами в социальных
+                    сетях с тегом #ПРИЛИПАЛЫ_4</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="section-barter" class="js-section-nav u-clear-fix b-section-comics">
+
+        <div class="b-comics b-comics_3">
+            <div class="b-comics__hero b-comics__hero-4">
+                <div class="b-comics__hero-text">
+                    <p>Когда я&nbsp;уже найду своего поросеночка?</p>
+                </div>
+            </div>
+            <div class="b-comics__hero b-comics__hero-5">
+                <div class="b-comics__hero-text">
+                    <p>Эй, да просто обменивайтесь прилипалами <a href="https://vk.com/public173236573" target="_blank" class="b-link">здесь!</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-comics b-comics_4">
+            <div class="b-comics__hero b-comics__hero-6"></div>
+            <div class="b-comics__hero b-comics__hero-7"></div>
+            <div class="b-comics__hero b-comics__hero-8">
+                <div class="b-comics__hero-text">
+                    <p>Не, нам&nbsp;второй&nbsp;баран не нужен!</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="section-shops" class="js-section-nav b-section-map">
+
+        <div id="map" class="b-section-map__wrapper"></div>
+
+        <form action="/map" class="js-shop-form b-shops-choose">
+            <div class="js-shop-form-border b-shops-choose__border"></div>
+            <h2 class="b-shops-choose__title">Найди ближайший магазин Дикси</h2>
+
+            <div class="b-shops-choose__wrapper">
+
+                <div class="js-cities-select b-dropdown__box">
+                    <div class="b-dropdown">
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop">Москва</span>
+                        <ul class="b-dropdown__sub"></ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="shops_city" name="shops[city]" type="text">
+                </div>
+
+                <div class="js-areas-select b-dropdown__box">
+                    <div class="b-dropdown">
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop">Выберите район</span>
+                        <ul class="b-dropdown__sub">
+                            <li class="b-dropdown__item">Район 1</li>
+                            <li class="b-dropdown__item">Район 2</li>
+                            <li class="b-dropdown__item">Район 3</li>
+                            <li class="b-dropdown__item">Район 4</li>
+                        </ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="shops_area" name="shops[area]" type="text">
+                </div>
+
+                <div class="b-input__box b-input__box_autocomplete disabled">
+                    <input type="text" name="shops[address]" id="shops_address" class="js-input-address b-input" placeholder="Найти магазин">
+                </div>
+
+
+            </div>
+        </form>
+
+    </section>
+
+    <section class="b-footer">
+
+        <div class="js-parallax b-footer__bg-wrapper">
+            <div data-depth="0.07" data-friction-x=".01" data-friction-y=".01" class="b-footer__bg"></div>
+        </div>
+
+        <a href="#" class="js-scroll-top b-footer__logo"></a>
+
+        <a href="#" class="js-scroll-top b-footer__scroll-top"></a>
+
+        <ul class="u-clear-fix b-footer-menu">
+            <li>
+                <a href="section-heroes" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_1">Знакомство с Героями</a>
+            </li>
+            <li>
+                <a href="section-app" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_2">Приложение</a>
+            </li>
+            <li>
+                <a href="section-play" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_3">Играть</a>
+            </li>
+            <li>
+                <a href="section-shops" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_6">Магазины</a>
+            </li>
+            <li>
+                <a href="section-barter" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_5">Обменять прилипал</a>
+            </li>
+            <li>
+                <a href="section-products" class="js-footer-menu-link b-footer-menu__link b-footer-menu__link_4">Товары</a>
+            </li>
+        </ul>
+
+        <p class="b-footer__text">
+            Акция проводится с 01.11.18 по 13.12.18 включительно. Правила проведения, информацию об организаторе, о товарах-спонсорах, территории проведения (адресах магазинов «ДИКСИ»), сроках можно узнать по телефону: 8-800-333-02-01 или на сайте
+            <a href="https://dixy.ru/" target="_blank">https://dixy.ru/</a>. Акция может быть прекращена досрочно в случаях, предусмотренных правилами. В период проведения акции
+            не гарантируется наличие акционного товара в каждом магазине «ДИКСИ».
+        </p>
+
+        <ul class="u-clear-fix b-footer__app">
+            <li>
+                <a target="_blank" href="https://itunes.apple.com/us/app/%D1%81%D1%83%D0%BF%D0%B5%D1%80%D0%B3%D0%B5%D1%80%D0%BE%D0%B8-%D0%B2%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5-%D0%BF%D1%80%D0%B8%D0%BB%D0%B8%D0%BF%D0%B0%D0%BB%D1%8B/id1436432430?l=ru&ls=1&mt=8" class="b-footer__app-link b-footer__app-link_appstore"></a>
+            </li>
+            <li>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=ru.Preoparty.Priliparty" class="b-footer__app-link b-footer__app-link_gp"></a>
+            </li>
+        </ul>
+    </section>
+
+</div>
+
+<div class="js-overlay-video b-video-overlay">
+    <a href="#" class="js-overlay-video-close b-video-wrapper__close"></a>
+    <div class="b-video-wrapper">
+        <div id="player"></div>
+    </div>
+</div>
+
+<div class="js-overlay-promo-code b-overlay ">
+
+    <div class="js-popup b-popup">
+        <span class="js-popup-border b-popup__border"></span>
+        <a href="#" class="js-close-promo-code b-video-wrapper__close"></a>
+        <span class="b-popup__logo"></span>
+        <div class="b-popup__hero-1"></div>
+        <div class="b-popup__hero-2"></div>
+
+        <ul class="u-clear-fix b-popup__tabs">
+            <li class="b-popup__tabs-item">
+                <a href="#promo-code_form" class="js-popup-tab b-popup__tabs-link active">
+                    <span>Ввести промокод</span>
+                </a>
+            </li>
+            <li class="b-popup__tabs-item">
+                <a href="#promo-code_info" class="js-popup-tab b-popup__tabs-link">
+                    <span>Где получить промокод</span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="promo-code_form" class="js-tabs-box b-popup__tabs-box">
+            <form action="{{ action }}" method="post" class="js-promo-from b-promo-form">
+                {{ form_row(form._token) }}
+                <div class="b-promo-form__code">
+                    <div class="js-input-box u-clear-fix b-input__box">
+                        <label for="promoCode_code" class="b-input__label">Код:</label>
+                        <input type="text" name="promocode" id="promoCode_code" class="js-required js-input b-input" placeholder="Введите код здесь">
+                    </div>
+                </div>
+
+                <div class="u-clear-fix b-column__box">
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_email" class="b-input__label">E-mail:</label>
+                            <input type="email" name="participant_form[email]" id="promoCode_email" class="js-required js-email-input js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_phone" class="b-input__label">Телефон:</label>
+                            <input type="text" name="participant_form[phone]" id="promoCode_phone" class="js-required js-input js-phone-input b-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="u-clear-fix b-column__box b-column__box_mb">
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_surname" class="b-input__label">Фамилия:</label>
+                            <input type="text" name="participant_form[surname]" id="promoCode_surname" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_name" class="b-input__label">Имя:</label>
+                            <input type="text" name="participant_form[name]" id="promoCode_name" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_secondname" class="b-input__label">Отчество:</label>
+                            <input type="text" name="participant_form[patronymic]" id="promoCode_secondname" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-clear-fix b-column__box">
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_index" class="b-input__label">Индекс:</label>
+                            <input type="text" name="participant_form[zip]" id="promoCode_index" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_region" class="b-input__label">Область:</label>
+                            <input type="text" name="participant_form[region]" id="promoCode_region" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_city" class="b-input__label">Город:</label>
+                            <input type="text" name="participant_form[city]" id="promoCode_city" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="u-clear-fix b-column__box b-column__box_mb">
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_street" class="b-input__label">Улица:</label>
+                            <input type="text" name="participant_form[street]" id="promoCode_street" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_building" class="b-input__label">Дом:</label>
+                            <input type="text" name="participant_form[house]" id="promoCode_building" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                    <div class="b-column b-column_x3">
+                        <div class="js-input-box u-clear-fix b-input__box">
+                            <label for="promoCode_flat" class="b-input__label">Квартира:</label>
+                            <input type="text" name="participant_form[apartment]" id="promoCode_flat" class="js-required js-input b-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-input-box b-checkbox__box">
+                    <input type="checkbox" name="agree" id="promoCode_agree" class="js-required js-input js-agree js-checkbox b-checkbox">
+                    <label for="promoCode_agree" class="b-checkbox__label">
+                        <i class="b-checkbox__label-icon"></i>
+                        Я согласен на&nbsp;обработку персональных данных
+                    </label>
+                </div>
+
+                <div class="b-button__box">
+                    <button type="submit" class="b-popup__button"><span>Отправить</span></button>
+
+                    <div class="js-promo-from-error b-promo-form__error">Возникла ошибка.<br>Повторите попытку позже.</div>
+                </div>
+            </form>
+
+            <div class="js-promo-from-success b-promo-form__success hidden">
+                Спасибо, ваш промокод отправлен.
+            </div>
+        </div>
+
+        <div id="promo-code_info" class="js-tabs-box b-popup__tabs-box hidden">
+            <div class="b-promo-code__info">
+                <p class="b-promo-code_text">
+                    Скачивайте приложение
+                    “Веселые прилипалы 4.
+                    Супергерои”,
+                    играйте в&nbsp;мини-игры
+                    и&nbsp;получайте призы!
+
+                </p>
+                <a href="https://itunes.apple.com/us/app/%D1%81%D1%83%D0%BF%D0%B5%D1%80%D0%B3%D0%B5%D1%80%D0%BE%D0%B8-%D0%B2%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5-%D0%BF%D1%80%D0%B8%D0%BB%D0%B8%D0%BF%D0%B0%D0%BB%D1%8B/id1436432430?l=ru&ls=1&mt=8" target="_blank" class="b-promo-code__app b-promo-code__app-store"></a>
+                <a href="https://play.google.com/store/apps/details?id=ru.Preoparty.Priliparty" target="_blank" class="b-promo-code__app b-promo-code__gp"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

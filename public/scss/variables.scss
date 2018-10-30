@@ -1,0 +1,54 @@
+$FirenightRegular: 'Firenight-Regular';
+$OutofLineBB: 'OutofLineBB';
+$OutofLineBB_bold: 'OutofLineBB-bold';
+$OutofLineBBitalicBold: 'OutofLineBB-italicBold';
+$OutofLineBB_italic: 'OutofLineBB-italic';
+
+$sectionHeight: 35.15625vw;
+$inputsHeight: 2.34375vw + 0.3125vw * 2;
+
+$fs13: 1.0156vw;
+$fs15: 1.171vw;
+$fs18: 1.40625vw;
+$fs21: 1.640625vw;
+$fs27: 2.11vw;
+$fs32: 2.5vw;
+
+$lh17: 1.328vw;
+$lh19: 1.484vw;
+$lh24: 1.875vw;
+$lh30: 2.34375vw;
+$lh37: 2.89vw;
+
+$fs9_mob: 2.5vw;
+$fs12_mob: 3.2vw;
+$fs14_mob: 3.73vw;
+$fs15_mob: 4vw;
+$fs18_mob: 4.8vw;
+$lh19_mob: 5.1vw;
+$fs21_mob: 5.6vw;
+$lh24_mob: 6.4vw;
+$lh30_mob: 8vw;
+
+$regularFS: 1.09375vw;
+$regularFLH: 1.797vw;
+
+$wrapperVal: 2.5%;
+$wrapperValMob: 4%;
+
+$regularColor: #111010;
+$yellowColor: #fec02e;
+$redColor: #d8171e;
+$redColor2: #ed1b23;
+$pinkColor: #ffcdb9;
+$overlayBG: rgba(40,38,41, .95);
+
+// placeholder
+@mixin placeholder ($color, $ff, $selector, $lh)
+{
+  $selector: unquote($selector);
+  #{$selector}::-webkit-input-placeholder{color: $color; font-family: $ff; line-height: $lh;}
+  #{$selector}:-moz-placeholder{color: $color; font-family: $ff; line-height: $lh;}
+  #{$selector}::-moz-placeholder{color: $color; font-family: $ff;line-height: $lh;}
+  #{$selector}:-ms-input-placeholder{color: $color; font-family: $ff;line-height: $lh;}
+}
