@@ -480,7 +480,7 @@ $(function () {
 
       $.each(val, function (key, val) {
         $('.js-products-carousel', $thisTab).append('<div class="js-product b-products">'+
-            '<div class="b-products__pic" style="background-image: url('+val.img+')"></div>'+
+            '<div class="b-products__pic" style="background-image: url(\''+val.img+'\')"></div>'+
             '<div class="b-products__text">'+
               '<div class="b-products__faq">'+
                 '<i class="b-products__faq-icon"></i>'+

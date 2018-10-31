@@ -207,7 +207,7 @@ class DefaultController extends AbstractController
     private function getProducts(AdapterInterface $cache): array
     {
         $productsCache = $cache->getItem('products');
-        if (1||!$productsCache->isHit()) {
+        if (!$productsCache->isHit()) {
             $products = [];
 
             /** @var Promoaction $promoaction */
@@ -216,7 +216,7 @@ class DefaultController extends AbstractController
             }
 
             /** @var Product $product */
-            foreach ($this->getDoctrine()->getRepository('App:Product')->findAll() as $product) {
+            foreach ($this->getDoctrine()->getRepository('App:Product')->getAll() as $product) {
                 if (!$product->getPromoaction()) {
                     continue;
                 }
