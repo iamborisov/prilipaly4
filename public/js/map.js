@@ -327,6 +327,11 @@ $(function () {
 
           myMap.behaviors.disable('scrollZoom');
 
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            //... отключаем перетаскивание карты
+            myMap.behaviors.disable('drag');
+          }
+
           var MyIconContentLayout = ymaps.templateLayoutFactory
             .createClass('<div style="color: #FFFFFF; text-align: center; font-family: GothamPro-Black; font-size: 18px; line-height: 49px; vertical-align: top;">$[properties.geoObjects.length]</div>');
 
