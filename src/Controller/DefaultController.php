@@ -7,6 +7,7 @@ use App\Entity\City;
 use App\Entity\Participant;
 use App\Entity\Product;
 use App\Entity\Promocode;
+use App\Entity\Region;
 use App\Entity\Shop;
 use App\Form\ParticipantFormType;
 use Doctrine\DBAL\Connection;
@@ -35,7 +36,7 @@ class DefaultController extends AbstractController
 
             'shops' => $this->getShops($cache, $geo),
             'cities' => $this->getCities($cache, $geo),
-            'products' => $this->getProducts($cache),
+            'products' => $this->getProducts($cache, $geo->getArea()->getRegion()),
             'promoactions' => $this->getPromoactions($cache),
             'regions' => $this->getRegions($cache),
             'geo' => [
@@ -72,6 +73,23 @@ class DefaultController extends AbstractController
             'result' => 'ok',
             'gocodeName' => $this->getGoCode($geo),
             'shopsArr' => $this->getShops($cache, $geo)
+        ]);
+    }
+
+    /**
+     * @Route("/area", name="area", methods={"POST"})
+     */
+    public function area(Request $request, AdapterInterface $cache)//, GeoipManager $geoip)
+    {
+        $region = $this->getDoctrine()->getRepository('App:Region')->getByName($request->get('area'));
+
+        if (!$region) {
+            $region = $this->getGeo($request->getClientIp())->getArea()->getRegion();
+        }
+
+        return new JsonResponse([
+            'result' => 'ok',
+            'products' => $this->getProducts($cache, $region)
         ]);
     }
 
@@ -204,9 +222,9 @@ class DefaultController extends AbstractController
         return $result;
     }
 
-    private function getProducts(AdapterInterface $cache): array
+    private function getProducts(AdapterInterface $cache, Region $geo): array
     {
-        $productsCache = $cache->getItem('products');
+        $productsCache = $cache->getItem('products' . $geo->getId());
         if (!$productsCache->isHit()) {
             $products = [];
 
@@ -221,7 +239,11 @@ class DefaultController extends AbstractController
                     continue;
                 }
 
-                $products[$product->getPromoaction()->getId()][] = $product->toArray();
+                foreach ($product->getRegions() as $region) {
+                    if ($region->getId() == $geo->getId()) {
+                        $products[$product->getPromoaction()->getId()][] = $product->toArray();
+                    }
+                }
             }
 
             $productsCache->set($products);

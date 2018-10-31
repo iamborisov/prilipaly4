@@ -204,17 +204,11 @@ class Product
 
     public function toArray(): array
     {
-        $regions = [];
-        foreach ($this->getRegions() as $region) {
-            $regions[] = $region->getId();
-        }
-
         return [
             'id' => $this->getId(),
             'title' => $this->getName(),
             'text' => $this->getDescription(),
-            'img' => $this->getWebPath(),
-            'regions' => $regions
+            'img' => $this->getWebPath()
         ];
     }
 

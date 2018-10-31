@@ -19,6 +19,23 @@ class RegionRepository extends ServiceEntityRepository
         parent::__construct($registry, Region::class);
     }
 
+    public function getByName($name)
+    {
+        if (!trim($name)) {
+            return null;
+        }
+
+        $result = $this->createQueryBuilder('r')
+            ->where('r.name LIKE :name')
+            ->setParameter('name', "%$name%")
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+
+        return count($result) ? $result[0] : null;
+    }
+
 //    /**
 //     * @return Region[] Returns an array of Region objects
 //     */
