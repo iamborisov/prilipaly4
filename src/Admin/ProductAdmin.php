@@ -33,6 +33,7 @@ final class ProductAdmin extends AbstractAdmin
     {
         $listMapper
 			->add('id')
+            ->add('promoaction')
 			->add('name')
 			->add('description')
 			->add('priority')
