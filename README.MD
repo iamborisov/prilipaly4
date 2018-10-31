@@ -14,15 +14,7 @@
 
     `bin/console maxmind:geoip:update-data http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz`
 
-5) Создать администратора сайта:
-
-    `bin/console fos:user:create`
-    
-    `bin/console fos:user:promote` 
-
-    !!! Когда команда :promote спросит роль пользвателя, необходимо написать: `ROLE_ADMIN`
-
-6) Настроить доступ к БД и почтовому серверу, отредактировав файл `.env` в папке проекта (для пример можно использовать `.env.dist`):
+5) Настроить доступ к БД и почтовому серверу, отредактировав файл `.env` в папке проекта (для пример можно использовать `.env.dist`):
 
     `APP_ENV` - должно быть "prod"
     
@@ -35,6 +27,14 @@
     `MAILER_USER` - имя отправителя для писем
     
     `MAILER_NAME` - почта отправителя для писем
+
+6) Создать администратора сайта:
+
+    `bin/console fos:user:create`
+    
+    `bin/console fos:user:promote` 
+
+    !!! Когда команда :promote спросит роль пользвателя, необходимо написать: `ROLE_ADMIN`
 
 7) Настроить веб-сервер на папку с проектом.
 
