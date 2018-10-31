@@ -281,7 +281,7 @@ $(function () {
           visible: true,
           baloon: false,
           placemark: new ymaps.Placemark([data.longitude, data.altitude],
-            {name: data.id, time: data.time, phone: data.phone, address: data.label},
+            {name: data.id, time: data.time, phone: data.phone, address: data.label, longitude: data.longitude, altitude: data.altitude},
             {
               iconLayout: 'default#imageWithContent',
               iconImageHref: './i/i-map-point.svg',
