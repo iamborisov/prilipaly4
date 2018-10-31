@@ -3083,6 +3083,7 @@ a {
 
   .b-product-logo{
     background: url("../i/product-logo-m.svg") no-repeat center;
+    background-size: 100% auto;
     transform: translate(-50%, 0);
     width: 32.7vw;
     height: 21.8vw;
@@ -3186,6 +3187,7 @@ a {
       width: 36.64vw;
       height: 47.87vw;
       background: url("../i/section-top/top-hero-4_flip.svg") no-repeat center;
+      background-size: 100% auto;
       left: 31% !important;
 
       .b-section-top__hero-cloud{
