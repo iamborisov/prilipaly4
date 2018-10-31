@@ -26,6 +26,8 @@ final class ProductAdmin extends AbstractAdmin
 			->add('id')
 			->add('name')
 			->add('priority')
+            ->add('regions')
+            ->add('promoaction')
 			;
     }
 
@@ -33,10 +35,10 @@ final class ProductAdmin extends AbstractAdmin
     {
         $listMapper
 			->add('id')
-            ->add('promoaction')
 			->add('name')
-			->add('description')
 			->add('priority')
+            ->add('regions')
+            ->add('promoaction')
 			->add('_action', null, [
                 'actions' => [
                     'show' => [],
