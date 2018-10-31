@@ -373,6 +373,9 @@ $(function () {
     var id = placemark.properties.get('name');
     var time = placemark.properties.get('time');
     var address = placemark.properties.get('address');
+    var longitude = placemark.properties.get('longitude');
+    var altitude = placemark.properties.get('altitude');
+    
     placemark.properties.set('balloonContent', '<p><span>Адрес:</span>'+address+'</p><p><span>Время работы:</span>'+time+'</p>');
 
     myMap.setZoom(16);
