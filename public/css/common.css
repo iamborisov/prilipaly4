@@ -789,7 +789,8 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 6; }
+  z-index: 6;
+  transform: translate3d(0px, 0px, 0px) rotate(0deg) !important; }
 
 .b-section-top__bg {
   position: absolute !important;
@@ -3655,11 +3656,8 @@ a {
       .b-products .b-products__faq-text .b-products__faq-text-wrapper {
         padding: 7vw 6vw 0;
         font-size: 3.2vw;
-        line-height: 4vw; }
-        .b-products .b-products__faq-text .b-products__faq-text-wrapper h6 {
-          font-size: 3.73vw;
-          line-height: 5.1vw;
-          margin-bottom: 1vw; }
+        line-height: 4vw;
+        max-height: 48.1vw; }
     .b-products .b-products__pic {
       width: 53.3vw;
       height: 52vw;

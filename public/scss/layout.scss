@@ -481,6 +481,7 @@ a {
   right: 0;
   bottom: 0;
   z-index: 6;
+  transform: translate3d(0px, 0px, 0px) rotate(0deg) !important;
 }
 
 .b-section-top__bg{
@@ -4240,12 +4241,7 @@ a {
         padding: 7vw 6vw 0;
         font-size: $fs12_mob;
         line-height: $fs15_mob;
-
-        h6{
-          font-size: 3.73vw;
-          line-height: 5.1vw;
-          margin-bottom: 1vw;
-        }
+        max-height: 48.1vw;
       }
     }
 

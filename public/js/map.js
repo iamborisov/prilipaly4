@@ -369,6 +369,9 @@ $(function () {
     var time = placemark.properties.get('time');
     var address = placemark.properties.get('address');
     placemark.properties.set('balloonContent', '<p><span>Адрес:</span>'+address+'</p><p><span>Время работы:</span>'+time+'</p>');
+
+    myMap.setZoom(16);
+    myMap.setCenter([longitude, altitude]);
   }
 
   /**
