@@ -39,5 +39,7 @@
 7) Настроить веб-сервер на папку с проектом.
 
     Инструкция по настройке веб-сервера для Symfony-проектов: https://symfony.com/doc/current/setup/web_server_configuration.html
+    
+    Если необходимо держать приложение в подпапке основного домена (example.com/prilipaly/...), то при настройке вебсервера вместо `try_files $uri /index.php$is_args$args;` надо использовать `try_files $uri /prilipaly/index.php$is_args$args;`
 
 8) Накатить БД из предоставленного дампа
