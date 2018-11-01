@@ -225,7 +225,7 @@ class DefaultController extends AbstractController
     private function getProducts(AdapterInterface $cache, Region $geo): array
     {
         $productsCache = $cache->getItem('products' . $geo->getId());
-        if (!$productsCache->isHit()) {
+        if (1||!$productsCache->isHit()) {
             $products = [];
 
             /** @var Promoaction $promoaction */

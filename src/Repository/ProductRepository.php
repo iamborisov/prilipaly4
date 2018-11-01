@@ -21,7 +21,7 @@ class ProductRepository extends ServiceEntityRepository
 
     public function getAll()
     {
-        return $this->findBy(array(), array('priority' => 'DESC'));
+        return $this->findBy(array(), array('priority' => 'ASC'));
     }
 
 //    /**
