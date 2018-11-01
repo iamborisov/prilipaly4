@@ -678,7 +678,7 @@ $(function () {
       $body.addClass('show');
       setTimeout(function () {
         paralax();
-        $body.removeClass('transitions').addClass('regular').removeClass('overflow');
+        $body.addClass('regular').removeClass('transitions').removeClass('overflow');
         $html.removeClass('overflow');
       }, 4000)
     }, 600);

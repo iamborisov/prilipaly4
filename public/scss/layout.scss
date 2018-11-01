@@ -169,7 +169,8 @@ body{
       animation: 0 !important;
       opacity: 1;
       transform: none;
-      transition: transform .1s linear;
+      transition: transform .1s linear !important;
+      -webkit-backface-visibility: hidden;
 
       &.b-section-top__hero_3{
         transition: transform .3s linear !important;
@@ -181,23 +182,23 @@ body{
     .b-section-top__hero{
       &.b-section-top__hero_1{
         opacity: 0;
-        transform: translate(-150%,0) scale(.3);
+        //transform: translate(-150%,0) scale(.3);
       }
       &.b-section-top__hero_2{
         opacity: 0;
-        transform: translate(-100%,50%) scale(1);
+        //transform: translate(-100%,50%) scale(1);
       }
       &.b-section-top__hero_3{
-        transform: translate(30%,0);
+        //transform: translate(30%,0);
         opacity: 0;
       }
       &.b-section-top__hero_4{
         opacity: 0;
-        transform: scale(0);
+        //transform: scale(0);
       }
       &.b-section-top__hero_5{
         opacity: 0;
-        transform: scale(0);
+        //transform: scale(0);
       }
     }
   }
@@ -582,6 +583,8 @@ a {
   &.b-section-top__hero_click{
     transition: transform .15s;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
 
     &:active{
       transform: scale(.98) !important;
@@ -646,7 +649,7 @@ a {
     background: inline-image("section-top/top-hero-3.png") no-repeat center 40%;
     background-size: 100% auto;
     pointer-events: auto;
-    opacity: 0;
+    //opacity: 0;
 
     .b-section-top__hero-cloud{
       right: 80%;
