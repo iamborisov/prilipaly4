@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 @keyframes hero1Move {
   0% {
     opacity: 1;
@@ -343,7 +345,7 @@ a {
     transform: translate(-50%,-50%) scale(1);
     width: 70px;
     height: 70px;
-    background: url("../i/i-logo.svg") no-repeat;
+    background: inline-image("i-logo.svg") no-repeat;
     background-size: 100%;
     z-index: 2;
     //transition: transform .45s;
@@ -366,7 +368,7 @@ a {
   transform: translate(-250%,-50%) rotate(-180deg);
   width: 3.9vw;
   height: 3.9vw;
-  background: url("../i/i-logo.svg") no-repeat;
+  background: inline-image("i-logo.svg") no-repeat;
   background-size: 100%;
   backface-visibility: hidden;
 }
@@ -378,7 +380,7 @@ a {
   transform: translate(-70%, 0);
   width: 24.4vw;
   height: 11.4vw;
-  background: url("../i/product-logo.svg") no-repeat center;
+  background: inline-image("product-logo.svg") no-repeat center;
   background-size: auto 100%;
   opacity: 0;
   transition: opacity 1s .5s;
@@ -410,7 +412,7 @@ a {
     width: 38%;
     height: 100%;
     transform: translate(-50%, 0);
-    background: url("../i/i-burger.svg") no-repeat center;
+    background: inline-image("i-burger.svg") no-repeat center;
     background-size: 100% auto;
     transition: transform .25s;
   }
@@ -460,7 +462,9 @@ a {
     left: -5% !important;
     right: -5%;
     bottom: -5%;
-    background: url("../i/section-top/city-buildings.png") no-repeat center 0%;
+    background-image: inline-image("section-top/city-buildings.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
     background-size: 100% auto;
     transition: background-position 4s, transform .3s linear;
     backface-visibility: hidden;
@@ -490,10 +494,13 @@ a {
   left: -5% !important;
   right: -5%;
   bottom: -5%;
-  background: url("../i/section-top/city.png") no-repeat center 40%;
+  background-image: inline-image("section-top/city.png");
+  background-repeat: no-repeat;
+  background-position: center 40%;
   background-size: 100% auto;
   transition: background-position 4s, transform .3s linear;
   backface-visibility: hidden;
+
 }
 
 .b-section-top__sky{
@@ -502,7 +509,9 @@ a {
   left: -5% !important;
   right: -5%;
   bottom: -5%;
-  background: url("../i/section-top/city-sky.png") no-repeat center 0;
+  background-image: inline-image("section-top/city-sky.png");
+  background-repeat: no-repeat;
+  background-position: center 0;
   background-size: 100% auto;
   transition: background-position 2s 2s;
   backface-visibility: hidden;
@@ -590,7 +599,9 @@ a {
     top: -20% !important;
     width: 34.2vw;
     height: 26.8vw;
-    background: url("../i/section-top/top-hero-1.svg") no-repeat center;
+    background-image: inline-image("section-top/top-hero-1.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 100% auto;
   }
 
@@ -600,7 +611,9 @@ a {
     bottom: -3vw;
     width: 19.1vw;
     height: 17.1875vw;
-    background: url("../i/section-top/top-hero-2.svg") no-repeat center;
+    background-image: inline-image("section-top/top-hero-2.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 100% auto;
 
     .b-section-top__hero-cloud{
@@ -610,7 +623,7 @@ a {
       line-height: $lh19;
       width: 12.1875vw;
       height: 11.71875vw;
-      background: url("../i/section-top/top-hero-2_cloud.svg") no-repeat center;
+      background: inline-image("section-top/top-hero-2_cloud.svg") no-repeat center;
       background-size: 100% auto;
       padding: 2.2vw 1vw 3.3vw 2vw;
       transition: opacity .25s 2.7s;
@@ -630,7 +643,7 @@ a {
     bottom: 27.2%;
     width: 4.58vw;
     height: 7.2vw;
-    background: url("../i/section-top/top-hero-3.png") no-repeat center 40%;
+    background: inline-image("section-top/top-hero-3.png") no-repeat center 40%;
     background-size: 100% auto;
     pointer-events: auto;
     opacity: 0;
@@ -640,7 +653,7 @@ a {
       bottom: 70%;
       width: 10vw;
       height: 8.36vw;
-      background: url("../i/section-top/top-hero-3_cloud.svg") no-repeat center;
+      background: inline-image("section-top/top-hero-3_cloud.svg") no-repeat center;
       background-size: 100% auto;
       padding: 4vw 3vw 0 .7vw;
       font-size: 0.75vw;
@@ -655,7 +668,7 @@ a {
     top: auto !important;
     width: 16.33vw;
     height: 22vw;
-    background: url("../i/section-top/top-hero-4.svg") no-repeat center;
+    background: inline-image("section-top/top-hero-4.svg") no-repeat center;
     background-size: 100% auto;
 
     .b-section-top__hero-cloud{
@@ -664,7 +677,7 @@ a {
       bottom: 105%;
       width: 18.4375vw;
       height: 13.86vw;
-      background: url("../i/section-top/top-hero-4_cloud.svg") no-repeat center bottom;
+      background: inline-image("section-top/top-hero-4_cloud.svg") no-repeat center bottom;
       background-size: 100% auto;
       padding: 3.2vw 1vw 5vw 1vw;
       transition: opacity .25s 2s;
@@ -678,7 +691,7 @@ a {
     bottom: 2%;
     width: 9.8vw;
     height: 15.4vw;
-    background: url("../i/section-dwnld/hero-2.png") no-repeat center;
+    background: inline-image("section-dwnld/hero-2.png") no-repeat center;
     background-size: 100% auto;
 
     .b-section-top__hero-cloud{
@@ -688,7 +701,7 @@ a {
       line-height: $lh19;
       width: 12.58vw;
       height: 14.77vw;
-      background: url("../i/section-top/top-hero-5_cloud.svg") no-repeat center bottom;
+      background: inline-image("section-top/top-hero-5_cloud.svg") no-repeat center bottom;
       background-size: 100% auto;
       padding: 1.5vw 1vw 7vw 1vw;
       transition: opacity .25s 2.35s;
@@ -747,7 +760,7 @@ a {
   right: 40px;
   width: 4.6875vw;
   height: 4.6875vw;
-  background: url("../i/i-popup-close.svg") no-repeat center;
+  background: inline-image("i-popup-close.svg") no-repeat center;
   background-size: 2.65625vw auto;
   opacity: .65;
   transition: opacity .25s;
@@ -854,7 +867,7 @@ a {
   bottom: 100%;
   left: 50%;
   transform: translate(-50%, 0);
-  background: url("../i/product-logo.svg") no-repeat center top;
+  background: inline-image("product-logo.svg") no-repeat center top;
   background-size: 100% auto;
   width: 23.9vw;
   height: 11.875vw;
@@ -878,7 +891,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../i/section-top/top-hero-2.svg") no-repeat center;
+    background: inline-image("section-top/top-hero-2.svg") no-repeat center;
     background-size: 100% auto;
     z-index: 2;
   }
@@ -891,7 +904,7 @@ a {
     height: 31.40625vw;
     left: 0;
     top: 0;
-    background: url("../i/popup-promo/popup-headhog-shadow.png") no-repeat;
+    background: inline-image("popup-promo/popup-headhog-shadow.png") no-repeat;
     background-size: 100% auto;
     transform: rotate(9deg);
     opacity: 0;
@@ -915,7 +928,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../i/popup-promo/popup-hero-1.svg") no-repeat center;
+    background: inline-image("popup-promo/popup-hero-1.svg") no-repeat center;
     background-size: 100% auto;
     z-index: 2;
   }
@@ -928,7 +941,7 @@ a {
     height: 35.15625vw;
     right: 0;
     top: 0;
-    background: url("../i/popup-promo/popup-dack-shadow.png") no-repeat;
+    background: inline-image("popup-promo/popup-dack-shadow.png") no-repeat;
     background-size: 100% auto;
     opacity: 0;
     transition: opacity .25s .85s;
@@ -967,7 +980,7 @@ a {
 
     span{
       padding-bottom: .3vw;
-      background: url("../i/popup-promo/popup-tab-underline.svg") repeat-x left bottom;
+      background: inline-image("popup-promo/popup-tab-underline.svg") repeat-x left bottom;
     }
 
     &.active{
@@ -1009,7 +1022,7 @@ a {
         &.error{
           &+.b-checkbox__label{
             .b-checkbox__label-icon{
-              background-image: url("../i/i-checkbox__error.svg");
+              background-image: inline-image("i-checkbox__error.svg");
             }
           }
         }
@@ -1105,7 +1118,7 @@ a {
     top: 0;
     width: 2.03125vw;
     height: 2.03125vw;
-    background: url("../i/i-checkbox.svg") no-repeat center;
+    background: inline-image("i-checkbox.svg") no-repeat center;
     background-size: 100% auto;
 
     &:before{
@@ -1116,7 +1129,7 @@ a {
       transform: translate(-50%,-50%);
       width: 1.5625vw;
       height: 1.33vw;
-      background: url("../i/i-checkbox-checked.svg") no-repeat center;
+      background: inline-image("i-checkbox-checked.svg") no-repeat center;
       background-size: 100% auto;
       opacity: 0;
       transition: opacity .25s;
@@ -1131,7 +1144,7 @@ a {
   transform: translate(0, -50%) scale(0);
   width: 26.40625vw;
   height: 11.17vw;
-  background: url("../i/popup-promo/popup-error-bg.svg") no-repeat center;
+  background: inline-image("popup-promo/popup-error-bg.svg") no-repeat center;
   background-size: 100% auto;
   color: #fff;
   box-sizing: border-box;
@@ -1179,7 +1192,7 @@ a {
       right: 0;
       bottom: 0;
       z-index: 1;
-      background: url("../i/popup-promo/popup-button.svg") no-repeat center;
+      background: inline-image("popup-promo/popup-button.svg") no-repeat center;
       background-size: 100% auto;
       transition: transform .35s;
       backface-visibility: hidden;
@@ -1241,7 +1254,7 @@ a {
     top: -6vw;
     width: 46.64vw;
     height: 34.92vw;
-    background: url("../i/popup-promo/promo-code-pics.png") no-repeat center;
+    background: inline-image("popup-promo/promo-code-pics.png") no-repeat center;
     background-size: 100% auto;
   }
 
@@ -1260,11 +1273,11 @@ a {
   background-size: 100% auto;
 
   &.b-promo-code__app-store{
-    background-image: url("../i/ico-appstore.svg");
+    background-image: inline-image("ico-appstore.svg");
   }
 
   &.b-promo-code__gp{
-    background-image: url("../i/ico-gplay.svg");
+    background-image: inline-image("ico-gplay.svg");
   }
 }
 
@@ -1346,7 +1359,7 @@ a {
   line-height: 0;
   width: 22.266vw;
   height: 8.2vw;
-  background: url("../i/map-title.png") no-repeat;
+  background: inline-image("map-title.png") no-repeat;
   background-size: 100% auto;
   position: absolute;
   left: 52%;
@@ -1498,7 +1511,7 @@ a {
 .b-section-carousel{
   height: 43.15625vw;
   margin: 2.5% 0;
-  background: url("../i/section-carsl/carousel-bg.jpg") no-repeat center bottom;
+  background: inline-image("section-carsl/carousel-bg.jpg") no-repeat center bottom;
   background-size: 150% 135%;
   position: relative;
   overflow: hidden;
@@ -1515,7 +1528,7 @@ a {
   font-size: 0;
   line-height: 0;
   color: transparent;
-  background: url("../i/section-carsl/carousel-title.png") no-repeat center;
+  background: inline-image("section-carsl/carousel-title.png") no-repeat center;
   background-size: 100% auto;
 }
 
@@ -1574,7 +1587,7 @@ a {
     bottom: 80%;
     width: 37.5vw;
     height: 15vw;
-    background: url("../i/section-carsl/carousel-heroes-cloud.svg") no-repeat center;
+    background: inline-image("section-carsl/carousel-heroes-cloud.svg") no-repeat center;
     background-size: 100% auto;
     z-index: 2;
     opacity: 0;
@@ -1662,21 +1675,21 @@ a {
 
     &.b-comics_1{
       margin-right: 2.5%;
-      background: url("../i/section-dwnld/bg-1.jpg") no-repeat center;
+      background: inline-image("section-dwnld/bg-1.jpg") no-repeat center;
       background-size: cover;
     }
     &.b-comics_3{
       margin-right: 2.5%;
-      background: url("../i/section-barter/bg-1.jpg") no-repeat center;
+      background: inline-image("section-barter/bg-1.jpg") no-repeat center;
       background-size: cover;
       z-index: 2;
     }
     &.b-comics_2{
-      background: url("../i/section-dwnld/bg-2.jpg") no-repeat center;
+      background: inline-image("section-dwnld/bg-2.jpg") no-repeat center;
       background-size: cover;
     }
     &.b-comics_4{
-      background: url("../i/section-barter/bg-2.jpg") no-repeat left bottom;
+      background: inline-image("section-barter/bg-2.jpg") no-repeat left bottom;
       background-size: cover;
     }
   }
@@ -1720,7 +1733,7 @@ a {
   &.b-comics__hero-1{
     width: 9.53vw;
     height: 17.11vw;
-    background: url("../i/section-dwnld/hero-1.png") no-repeat center;
+    background: inline-image("section-dwnld/hero-1.png") no-repeat center;
     background-size: 100% auto;
     left: 6vw;
     bottom: 6.8vw;
@@ -1730,7 +1743,7 @@ a {
       bottom: 86%;
       width: 16vw;
       height: 9vw;
-      background: url("../i/section-dwnld/text-cloud-1.svg") no-repeat center;
+      background: inline-image("section-dwnld/text-cloud-1.svg") no-repeat center;
       background-size: 100% auto;
       transition: transform .35s, opacity .35s;
 
@@ -1744,7 +1757,7 @@ a {
   &.b-comics__hero-2{
     width: 11.48vw;
     height: 17.89vw;
-    background: url("../i/section-dwnld/hero-2.png") no-repeat center;
+    background: inline-image("section-dwnld/hero-2.png") no-repeat center;
     background-size: 100% auto;
     right: 4.2vw;
     bottom: 1.5vw;
@@ -1754,7 +1767,7 @@ a {
       bottom: 86%;
       width: 13.5vw;
       height: 14.8vw;
-      background: url("../i/section-dwnld/text-cloud-2.svg") no-repeat center;
+      background: inline-image("section-dwnld/text-cloud-2.svg") no-repeat center;
       background-size: 100% auto;
       transition: transform .35s .25s, opacity .35s .25s;
 
@@ -1769,7 +1782,7 @@ a {
     height: 19.77vw;
     right: -.8vw;
     bottom: -2vw;
-    background: url("../i/heroes-carousel/9-cat.png") no-repeat;
+    background: inline-image("heroes-carousel/9-cat.png") no-repeat;
     background-size: 100% auto;
 
     .b-comics__hero-text{
@@ -1777,7 +1790,7 @@ a {
       bottom: 45%;
       width: 19vw;
       height: 31vw;
-      background: url("../i/section-dwnld/text-cloud-3.svg") no-repeat center;
+      background: inline-image("section-dwnld/text-cloud-3.svg") no-repeat center;
       background-size: 100% auto;
       font-size: 1.20625vw;
       line-height: 1.675vw;
@@ -1805,7 +1818,7 @@ a {
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("../i/heroes-carousel/21-pig-girl.png") no-repeat;
+      background: inline-image("heroes-carousel/21-pig-girl.png") no-repeat;
       background-size: 100% auto;
       transform: rotateY(180deg);
     }
@@ -1815,7 +1828,7 @@ a {
       bottom: 85%;
       width: 13.3vw;
       height: 10.92vw;
-      background: url("../i/section-barter/text-cloud-1.svg") no-repeat center;
+      background: inline-image("section-barter/text-cloud-1.svg") no-repeat center;
       background-size: 100% auto;
       font-size: $fs15;
       line-height: $lh24;
@@ -1835,7 +1848,7 @@ a {
     height: 16.55vw;
     right: 4vw;
     bottom: 0;
-    background: url("../i/heroes-carousel/8-rabbit.png") no-repeat;
+    background: inline-image("heroes-carousel/8-rabbit.png") no-repeat;
     background-size: 100% auto;
 
     .b-comics__hero-text{
@@ -1843,7 +1856,7 @@ a {
       bottom: 85%;
       width: 18.67vw;
       height: 14.84vw;
-      background: url("../i/section-barter/text-cloud-2.svg") no-repeat center;
+      background: inline-image("section-barter/text-cloud-2.svg") no-repeat center;
       background-size: 100% auto;
       font-size: $fs15;
       line-height: $lh24;
@@ -1863,7 +1876,7 @@ a {
     height: 13vw;
     left: 13vw;
     bottom: 7.8vw;
-    background: url("../i/heroes-carousel/16-sheep.png") no-repeat;
+    background: inline-image("heroes-carousel/16-sheep.png") no-repeat;
     background-size: 100% auto;
     opacity: .83;
   }
@@ -1873,7 +1886,7 @@ a {
     height: 23.7vw;
     left: 2.1vw;
     bottom: -1vw;
-    background: url("../i/section-barter/hero-1_back.svg") no-repeat;
+    background: inline-image("section-barter/hero-1_back.svg") no-repeat;
     background-size: 100% auto;
   }
 
@@ -1882,7 +1895,7 @@ a {
     height: 16.41vw;
     right: 5.4vw;
     bottom: 0;
-    background: url("../i/heroes-carousel/4-frog.png") no-repeat;
+    background: inline-image("heroes-carousel/4-frog.png") no-repeat;
     background-size: 100% auto;
 
     .b-comics__hero-text{
@@ -1890,7 +1903,7 @@ a {
       bottom: 68%;
       width: 15vw;
       height: 13.3vw;
-      background: url("../i/section-barter/text-cloud-3.svg") no-repeat center;
+      background: inline-image("section-barter/text-cloud-3.svg") no-repeat center;
       background-size: 100% auto;
       font-size: $fs15;
       line-height: $lh24;
@@ -1912,7 +1925,7 @@ a {
   height: 40vw;
   left: -8vw;
   bottom: -2vw;
-  background: url("../i/section-dwnld/iphone.png") no-repeat;
+  background: inline-image("section-dwnld/iphone.png") no-repeat;
   background-size: 100% auto;
 
   div{
@@ -1921,7 +1934,7 @@ a {
     height: 23.7vw;
     left: 13.3vw;
     top: 8.1vw;
-    background: url("../i/section-dwnld/phone-bg-1.jpg") no-repeat center;
+    background: inline-image("section-dwnld/phone-bg-1.jpg") no-repeat center;
     background-size: cover;
   }
 }
@@ -1932,7 +1945,7 @@ a {
   right: 30%;
   width: 8vw;
   height: 3vw;
-  background: url("../i/ico-gplay.svg") no-repeat center;
+  background: inline-image("ico-gplay.svg") no-repeat center;
   background-size: 100% auto;
   transform: rotate(-2deg);
 }
@@ -1943,7 +1956,7 @@ a {
   right: 42%;
   width: 8vw;
   height: 3vw;
-  background: url("../i/ico-appstore.svg") no-repeat center;
+  background: inline-image("ico-appstore.svg") no-repeat center;
   background-size: 100% auto;
   transform: rotate(-2deg);
 }
@@ -2019,7 +2032,7 @@ a {
     z-index: 3;
     width: 2.65625vw;
     height: 2.65625vw;
-    background: url("../i/i-menu-burger-close.svg") no-repeat center;
+    background: inline-image("i-menu-burger-close.svg") no-repeat center;
     background-size: 100% auto;
     top: 2.89vw;
     right: 2.65625vw;
@@ -2078,13 +2091,13 @@ a {
   top: 6.17vw;
 
   &.b-menu-box__hero_bottom{
-    background: url("../i/menu-hero-bottom.png") no-repeat center;
+    background: inline-image("menu-hero-bottom.png") no-repeat center;
     background-size: auto 100% ;
     z-index: 1;
   }
 
   &.b-menu-box__hero_top{
-    background: url("../i/menu-hero-top.png") no-repeat 6vw center;
+    background: inline-image("menu-hero-top.png") no-repeat 6vw center;
     background-size: auto 100%;
     z-index: 3;
     margin-right: 6vw;
@@ -2126,7 +2139,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../i/menu-button-bg.svg") no-repeat center;
+    background: inline-image("menu-button-bg.svg") no-repeat center;
     background-size: 100% auto;
     transition: transform .35s;
     backface-visibility: hidden;
@@ -2174,7 +2187,7 @@ a {
     right: -5%;
     top: -5% !important;
     bottom: -5%;
-    background: url("../i/footer/footer-bg.jpg") no-repeat center 20%;
+    background: inline-image("footer/footer-bg.jpg") no-repeat center 20%;
     background-size: cover;
     transition: transform .3s linear;
   }
@@ -2220,32 +2233,32 @@ a {
     &.b-footer-menu__link_1{
       width: 13.05vw;
       height: 1.29vw;
-      background-image: url("../i/footer/menu-1.png");
+      background-image: inline-image("footer/menu-1.png");
     }
     &.b-footer-menu__link_2{
       width: 7.07vw;
       height: 1.33vw;
-      background-image: url("../i/footer/menu-2.png");
+      background-image: inline-image("footer/menu-2.png");
     }
     &.b-footer-menu__link_3{
       width: 3.91vw;
       height: 1.29vw;
-      background-image: url("../i/footer/menu-3.png");
+      background-image: inline-image("footer/menu-3.png");
     }
     &.b-footer-menu__link_4{
       width: 4.26vw;
       height: 1.29vw;
-      background-image: url("../i/footer/menu-4.png");
+      background-image: inline-image("footer/menu-4.png");
     }
     &.b-footer-menu__link_5{
       width: 11.21vw;
       height: 1.41vw;
-      background-image: url("../i/footer/menu-5.png");
+      background-image: inline-image("footer/menu-5.png");
     }
     &.b-footer-menu__link_6{
       width: 6.09vw;
       height: 1.33vw;
-      background-image: url("../i/footer/menu-6.png");
+      background-image: inline-image("footer/menu-6.png");
     }
   }
 }
@@ -2257,7 +2270,7 @@ a {
   left: 50%;
   top: 1.09vw;
   transform: translate(-50%,0);
-  background: url("../i/product-logo.svg") no-repeat center;
+  background: inline-image("product-logo.svg") no-repeat center;
   background-size: 100% auto;
   margin-left: 1.4vw;
   z-index: 4;
@@ -2298,10 +2311,10 @@ a {
     background-size: 100% auto;
     
     &.b-footer__app-link_appstore{
-      background-image: url("../i/ico-appstore.svg");
+      background-image: inline-image("ico-appstore.svg");
     }
     &.b-footer__app-link_gp{
-      background-image: url("../i/ico-gplay.svg");
+      background-image: inline-image("ico-gplay.svg");
       margin-top: -.5vw;
     }
   }
@@ -2313,7 +2326,7 @@ a {
   bottom: 2.8vw;
   width: 5.86vw;
   height: 5.86vw;
-  background: url("../i/footer/ico-top.svg") no-repeat center;
+  background: inline-image("footer/ico-top.svg") no-repeat center;
   background-size: 100% auto;
 }
 
@@ -2321,7 +2334,7 @@ a {
   position: relative;
   margin: 2.5% 0;
   height: $sectionHeight;
-  background: url("../i/section-prod/bg.jpg") no-repeat center;
+  background: inline-image("section-prod/bg.jpg") no-repeat center;
   background-size: cover;
   overflow: hidden;
 
@@ -2347,7 +2360,7 @@ a {
     top: 0.5vw;
     width: 23.48vw;
     height: 16vw;
-    background: url("../i/section-prod/text-cloud.svg") no-repeat center;
+    background: inline-image("section-prod/text-cloud.svg") no-repeat center;
     background-size: 100% auto;
     font-size: 1.5625vw;
     line-height: 1.95vw;
@@ -2369,7 +2382,7 @@ a {
   color: transparent;
   width: 20.39vw;
   height: 7.73vw;
-  background: url("../i/section-prod/section-title.png") no-repeat center;
+  background: inline-image("section-prod/section-title.png") no-repeat center;
   background-size: 100% auto;
 
   &:before{
@@ -2379,7 +2392,7 @@ a {
     top: 3%;
     width: 8.2vw;
     height: 2.11vw;
-    background: url("../i/section-prod/title-arrow.svg") no-repeat;
+    background: inline-image("section-prod/title-arrow.svg") no-repeat;
     background-size: 100% auto;
   }
 }
@@ -2416,7 +2429,7 @@ a {
     &:nth-child(2){
       .b-product-tabs{
         &:before{
-          background-image: url("../i/section-prod/item-cloud2.svg");
+          background-image: inline-image("section-prod/item-cloud2.svg");
         }
         .b-product-tabs__numbers{
           span{
@@ -2432,7 +2445,7 @@ a {
     &:nth-child(3){
       .b-product-tabs{
         &:before{
-          background-image: url("../i/section-prod/item-cloud3.svg");
+          background-image: inline-image("section-prod/item-cloud3.svg");
         }
         .b-product-tabs__numbers{
           span{
@@ -2451,7 +2464,7 @@ a {
     &:nth-child(4){
       .b-product-tabs{
         &:before{
-          background-image: url("../i/section-prod/item-cloud4.svg");
+          background-image: inline-image("section-prod/item-cloud4.svg");
         }
         .b-product-tabs__numbers{
           span{
@@ -2515,7 +2528,7 @@ a {
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("../i/section-prod/item-cloud1.svg") no-repeat center;
+      background: inline-image("section-prod/item-cloud1.svg") no-repeat center;
       background-size: 100% auto;
       opacity: 0;
       transition: opacity .25s;
@@ -2551,7 +2564,7 @@ a {
     top: 0;
     width: 2.03vw;
     height: 2.53vw;
-    background: url("../i/section-prod/i-area.svg") no-repeat center;
+    background: inline-image("section-prod/i-area.svg") no-repeat center;
     background-size: 100% auto;
   }
 
@@ -2643,7 +2656,7 @@ a {
   right: -3%;
   top: -4% !important;
   bottom: -4%;
-  background: url("../i/section-play/play-map.jpg") no-repeat center 72%;
+  background: inline-image("section-play/play-map.jpg") no-repeat center 72%;
   background-size: 100% auto;
   transition: transform .3s linear;
 }
@@ -2662,7 +2675,7 @@ a {
     right: -3%;
     top: -4% !important;
     bottom: -4%;
-    background: url("../i/section-play/play-map-top.png") no-repeat center top;
+    background: inline-image("section-play/play-map-top.png") no-repeat center top;
     background-size: 100% auto;
     transition: transform .3s linear;
   }
@@ -2685,7 +2698,7 @@ a {
     left: 4.53vw;
     width: 18.16vw;
     height: 7.31vw;
-    background: url("../i/section-play/section-title.png") no-repeat center;
+    background: inline-image("section-play/section-title.png") no-repeat center;
     background-size: 100% auto;
   }
 }
@@ -2720,7 +2733,7 @@ a {
     color: $regularColor !important;
 
     &:before{
-      background-image: url("../i/section-play/play-number-active.svg");
+      background-image: inline-image("section-play/play-number-active.svg");
       transform: none !important;
     }
   }
@@ -2733,7 +2746,7 @@ a {
     right: 0;
     bottom: 0;
     z-index: 1;
-    background: url("../i/section-play/play-number.svg") no-repeat center;
+    background: inline-image("section-play/play-number.svg") no-repeat center;
     background-size: 100% auto;
     transition: transform .25s;
     backface-visibility: hidden;
@@ -2794,7 +2807,7 @@ a {
   transform: translate(-50%,-50%) scale(0);
   width: 30.86vw;
   height: 16.95vw;
-  background: url("../i/section-play/play-cloud.svg") no-repeat center;
+  background: inline-image("section-play/play-cloud.svg") no-repeat center;
   background-size: 100% auto;
   z-index: 5;
   box-sizing: border-box;
@@ -2868,7 +2881,7 @@ a {
     height: 3.52vw;
     outline: none;
     border: none;
-    background: url("../i/section-prod/arrow-left.svg") no-repeat center;
+    background: inline-image("section-prod/arrow-left.svg") no-repeat center;
     background-size: auto 100%;
     transition: transform .25s;
     z-index: 8;
@@ -2974,7 +2987,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../i/section-prod/ico-info.svg") no-repeat center;
+    background: inline-image("section-prod/ico-info.svg") no-repeat center;
     background-size: 100% auto;
     transition: transform .25s;
     z-index: 3;
@@ -2987,7 +3000,7 @@ a {
     z-index: 2;
     width: 18.28vw;
     height: 16.02vw;
-    background: url("../i/section-prod/product-popup-bg.svg") no-repeat center;
+    background: inline-image("section-prod/product-popup-bg.svg") no-repeat center;
     background-size: cover;
     opacity: 0;
     visibility: hidden;
@@ -3082,7 +3095,7 @@ a {
   }
 
   .b-product-logo{
-    background: url("../i/product-logo-m.svg") no-repeat center;
+    background: inline-image("product-logo-m.svg") no-repeat center;
     background-size: 100% auto;
     transform: translate(-50%, 0);
     width: 32.7vw;
@@ -3172,7 +3185,7 @@ a {
       bottom: 8%;
 
       .b-section-top__hero-cloud{
-        background-image: url("../i/section-top/top-hero-3_cloud_mob.svg");
+        background-image: inline-image("section-top/top-hero-3_cloud_mob.svg");
         width: 24.2vw;
         height: 26.4vw;
         right: auto;
@@ -3186,7 +3199,7 @@ a {
     &.b-section-top__hero_4{
       width: 36.64vw;
       height: 47.87vw;
-      background: url("../i/section-top/top-hero-4_flip.svg") no-repeat center;
+      background: inline-image("section-top/top-hero-4_flip.svg") no-repeat center;
       background-size: 100% auto;
       left: 31% !important;
 
@@ -3385,7 +3398,7 @@ a {
 
   .b-promo-form__error{
     transform: translate(-50%, 0) scale(0);
-    background: url("../i/popup-promo/popup-error-bg_mob.svg") no-repeat center;
+    background: inline-image("popup-promo/popup-error-bg_mob.svg") no-repeat center;
     width: 83.73vw;
     height: 40.8vw;
     left: 50%;
@@ -3407,7 +3420,7 @@ a {
     }
 
     &:before{
-      background-image: url("../i/popup-promo/promo-code-pics__mob.png");
+      background-image: inline-image("popup-promo/promo-code-pics__mob.png");
       width: 100vw;
       height: 73vw;
       left: 50%;
@@ -3479,7 +3492,7 @@ a {
     width: 63vw;
     height: 25.2vw;
     margin-bottom: -5vw;
-    background-image: url("../i/map-title_ mob.png");
+    background-image: inline-image("map-title_ mob.png");
   }
 
   .b-dropdown__box{
@@ -3505,7 +3518,7 @@ a {
   }
 
   .b-section-carousel__title{
-    background-image: url("../i/section-carsl/carousel-title_mob.png");
+    background-image: inline-image("section-carsl/carousel-title_mob.png");
     width: 61.22vw;
     height: 23.11vw;
     left: 50%;
@@ -3534,7 +3547,7 @@ a {
       font-size: 0;
       line-height: 0;
       color: transparent;
-      background: url("../i/section-carsl/carousel-heroes-arrow.svg") no-repeat center;
+      background: inline-image("section-carsl/carousel-heroes-arrow.svg") no-repeat center;
       background-size: 100% auto;
       z-index: 10;
 
@@ -3557,7 +3570,7 @@ a {
     .b-heroes-carousel__text{
       width: 87.73vw;
       height: 74.4vw;
-      background-image: url("../i/section-carsl/carousel-heroes-cloud_mob.svg");
+      background-image: inline-image("section-carsl/carousel-heroes-cloud_mob.svg");
       left: 50%;
       bottom: auto;
       top: 0;
@@ -3699,7 +3712,7 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("../i/heroes-carousel/9-cat.png") no-repeat;
+        background: inline-image("heroes-carousel/9-cat.png") no-repeat;
         background-size: 100% auto;
         transform: rotateY(180deg);
       }
@@ -3710,7 +3723,7 @@ a {
         width: 33vw;
         height: 63vw;
         bottom: 90%;
-        background-image: url("../i/section-dwnld/text-cloud-3_mob.svg");
+        background-image: inline-image("section-dwnld/text-cloud-3_mob.svg");
         font-size: $fs9_mob;
         line-height: 3.47vw;
 
@@ -3747,7 +3760,7 @@ a {
       bottom: -2vw;
 
       .b-comics__hero-text{
-        background-image: url("../i/section-barter/text-cloud-2_mob.svg");
+        background-image: inline-image("section-barter/text-cloud-2_mob.svg");
         width: 45.8vw;
         height: 28.8vw;
         font-size: 2.9vw;
@@ -3921,7 +3934,7 @@ a {
       right: 0;
       top: 50%;
       bottom: 0;
-      background: url("../i/footer/footer-bg.jpg") no-repeat center 30%;
+      background: inline-image("footer/footer-bg.jpg") no-repeat center 30%;
       background-size: 400% auto;
       z-index: 1;
     }
@@ -4028,7 +4041,7 @@ a {
     .b-section-play__title{
       top: 5.33vw;
       left: 50%;
-      background-image: url("../i/section-play/section-title_mob.png");
+      background-image: inline-image("section-play/section-title_mob.png");
       transform: translate(-50%, 0);
       width: 61.6vw;
       height: 25.1vw;
@@ -4095,7 +4108,7 @@ a {
     .b-section-products__cloud{
       width: 49.87vw;
       height: 36vw;
-      background-image: url("../i/section-prod/text-cloud_mob.svg");
+      background-image: inline-image("section-prod/text-cloud_mob.svg");
       font-size: 4.8vw;
       line-height: $fs21_mob;
       right: auto;
@@ -4214,7 +4227,7 @@ a {
     .slick-arrow{
       width: 9.1vw;
       height: 16vw;
-      background-image: url("../i/section-carsl/carousel-heroes-arrow.svg");
+      background-image: inline-image("section-carsl/carousel-heroes-arrow.svg");
       background-size: 100% auto;
 
 

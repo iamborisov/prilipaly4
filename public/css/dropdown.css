@@ -1,0 +1,194 @@
+/* line 3, ../scss/dropdown.scss */
+.b-dropdown__box {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 1vw;
+}
+/* line 8, ../scss/dropdown.scss */
+.b-dropdown__box.open {
+  z-index: 6;
+}
+
+/* line 13, ../scss/dropdown.scss */
+.b-dropdown {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  color: #111010;
+  font-size: 1.40625vw;
+  line-height: 2.96875vw;
+  background: #fff;
+  padding: 0 1.2501vw;
+  border-radius: 1.48438vw;
+  transform: rotate(-0.7deg);
+}
+/* line 25, ../scss/dropdown.scss */
+.b-dropdown .b-dropdown__label {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.2);
+  transform-origin: left top;
+  transition: transform .25s, top .25s;
+}
+/* line 36, ../scss/dropdown.scss */
+.b-dropdown.shifted .b-dropdown__label {
+  transform: scale(0.65);
+  top: 0;
+}
+/* line 42, ../scss/dropdown.scss */
+.b-dropdown .b-dropdown__arrow {
+  position: absolute;
+  right: 1.5626vw;
+  top: 54%;
+  transform: translate(0, -50%);
+  width: 0.625vw;
+  height: 0.547vw;
+  background: url("../i/i-dropdown-arrow.svg") no-repeat;
+  background-size: 100% auto;
+  transition: transform .25s;
+}
+/* line 55, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown__scroll .b-dropdown__text {
+  height: 2.96875vw;
+}
+/* line 58, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown__scroll .b-dropdown__sub {
+  max-height: 260px;
+  overflow-y: scroll;
+  margin-top: 1px;
+}
+/* line 63, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown__scroll .b-dropdown__sub li:first-child {
+  border-top: none;
+}
+/* line 69, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown_open {
+  z-index: 5;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+/* line 74, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown_open .b-dropdown__arrow {
+  transform: translate(0, -50%) rotate(180deg);
+}
+/* line 84, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown_open .b-dropdown__text {
+  color: #aba0a0;
+}
+/* line 89, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown_open.first-open .b-dropdown__sub {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  margin-top: -2.96875vw;
+}
+/* line 95, ../scss/dropdown.scss */
+.b-dropdown.b-dropdown_open.first-open .b-dropdown__sub .b-dropdown__item:first-child {
+  border-top: none;
+}
+
+/* line 102, ../scss/dropdown.scss */
+.b-dropdown_open .b-dropdown__sub {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+/* line 108, ../scss/dropdown.scss */
+.b-dropdown__sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+  max-height: 8.5vw;
+  border-top: none;
+  background: #fff;
+  border-bottom-left-radius: 1.48438vw;
+  border-bottom-right-radius: 1.48438vw;
+  box-shadow: 0 25px 30px rgba(94, 84, 62, 0.5);
+  padding-bottom: 1vw;
+  margin-top: -1px;
+}
+
+/* line 127, ../scss/dropdown.scss */
+.b-dropdown__item,
+.b-dropdown__text {
+  display: block;
+  background: transparent;
+  color: #111010;
+  transition: background .2s;
+  cursor: pointer;
+}
+
+/* line 136, ../scss/dropdown.scss */
+.b-dropdown__item {
+  padding: 0 1.5626vw;
+  line-height: 1.875vw;
+  transition: color .25s, background .25s;
+}
+/* line 141, ../scss/dropdown.scss */
+.b-dropdown__item:hover {
+  background: #d8171e;
+  color: #fff;
+}
+/* line 146, ../scss/dropdown.scss */
+.b-dropdown__item:first-child {
+  border-top: none;
+}
+
+/* line 157, ../scss/dropdown.scss */
+.b-dropdown__text {
+  border: none;
+  height: 2.96875vw;
+  box-sizing: border-box;
+  white-space: nowrap;
+  position: relative;
+  transition: color .25s, border-color .25s;
+}
+
+/* line 166, ../scss/dropdown.scss */
+.b-dropdown > .b-dropdown__text {
+  overflow: hidden;
+  padding-right: 18px;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 175, ../scss/dropdown.scss */
+  .b-dropdown {
+    border-radius: 6vw;
+    padding: 0 4.53vw;
+    line-height: 9.53vw;
+    font-size: 3.73vw;
+  }
+  /* line 181, ../scss/dropdown.scss */
+  .b-dropdown .b-dropdown__arrow {
+    right: 4.53vw;
+    width: 2.13vw;
+    height: 1.87vw;
+  }
+
+  /* line 188, ../scss/dropdown.scss */
+  .b-dropdown__sub {
+    max-height: 27.6vw;
+    border-bottom-right-radius: 6vw;
+    border-bottom-left-radius: 6vw;
+  }
+
+  /* line 194, ../scss/dropdown.scss */
+  .b-dropdown__item {
+    line-height: 6.4vw;
+    padding: 0 4.53vw;
+  }
+
+  /* line 199, ../scss/dropdown.scss */
+  .b-dropdown__text {
+    height: 9.53vw;
+  }
+}

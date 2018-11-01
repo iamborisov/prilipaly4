@@ -1,0 +1,97 @@
+/* line 1, ../scss/stub.scss */
+body {
+  min-width: 1024px;
+  background: #1f97ca;
+}
+
+/* line 6, ../scss/stub.scss */
+.b-stub {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../i/stub/bg.jpg") no-repeat center;
+  background-size: cover;
+  min-width: 1024px;
+}
+/* line 16, ../scss/stub.scss */
+.b-stub * {
+  z-index: 2;
+}
+/* line 20, ../scss/stub.scss */
+.b-stub:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 110, 179, 0.45);
+  opacity: .9;
+}
+
+/* line 34, ../scss/stub.scss */
+.b-stub__logo {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 82px;
+  height: 82px;
+  background: url("../i/stub/i-logo.png") no-repeat;
+  background-size: 100% auto;
+}
+
+/* line 44, ../scss/stub.scss */
+.b-stub__heroes {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  padding-bottom: 90px;
+}
+/* line 52, ../scss/stub.scss */
+.b-stub__heroes img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-left: 3%;
+}
+/* line 60, ../scss/stub.scss */
+.b-stub__heroes h1 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 40px;
+  line-height: 60px;
+  color: #cee7fd;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* line 71, ../scss/stub.scss */
+.b-stub__heroes h1:before, .b-stub__heroes h1:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  transform: translate(0, -50%);
+  width: 200px;
+  height: 26px;
+  background: url("../i/stub/i-title-line.png") no-repeat;
+  background-size: 100% auto;
+}
+/* line 84, ../scss/stub.scss */
+.b-stub__heroes h1:before {
+  right: 100%;
+  margin-right: 10px;
+}
+/* line 89, ../scss/stub.scss */
+.b-stub__heroes h1:after {
+  left: 100%;
+  margin-left: 10px;
+  transform: translate(0, -50%) rotate(180deg);
+}
