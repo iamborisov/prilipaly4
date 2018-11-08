@@ -98,39 +98,62 @@ class DefaultController extends AbstractController
      */
     public function participate(Request $request, \Swift_Mailer $mailer)
     {
-        if (!$request->get('agree')) {
-            throw $this->createAccessDeniedException("You must agree to the terms");
+        try {
+            if (!$request->get('agree')) {
+                return new JsonResponse(['result' => 'error', 'message' => 'You must agree to the terms']);
+            }
+
+            /** @var Promocode $promocode */
+            $promocode = $this->getDoctrine()
+                ->getRepository('App:Promocode')
+                ->findOneBy(
+                    [
+                        'code' => strtoupper($request->get('promocode')),
+                    ]
+                );
+
+            if (!$promocode) {
+                return new JsonResponse(['result' => 'error', 'message' => 'Invalid code']);
+            }
+
+            $isTest = in_array($promocode->getCode(), ['TESTTEST1', 'TESTTEST2', 'TESTTEST3']);
+
+            if ($promocode->getParticipant()) {
+                if ($isTest) {
+                    $this->getDoctrine()->getManager()->remove($promocode->getParticipant());
+                    $this->getDoctrine()->getManager()->flush();
+                } else {
+                    return new JsonResponse(['result' => 'error', 'message' => 'Already used']);
+                }
+            }
+
+            $form = $this->createForm(ParticipantFormType::class);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                /** @var Participant $participant */
+                $participant = $form->getData();
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($participant);
+                $entityManager->flush();
+
+                $promocode->setParticipant($participant);
+                $entityManager->flush();
+
+                $this->sendEmails($mailer, $participant);
+
+                if ($isTest) {
+                    $entityManager->remove($participant);
+                    $entityManager->flush();
+                }
+
+                return new JsonResponse(['result' => 'ok']);
+            }
+        } catch (\Exception $e) {
+//            return new JsonResponse(['result' => 'error', 'message' => $e->getMessage()]);
+            return new JsonResponse(['result' => 'error']);
         }
-
-        /** @var Promocode $promocode */
-        $promocode = $this->getDoctrine()
-            ->getRepository('App:Promocode')
-            ->findOneBy([
-                'code' => strtoupper($request->get('promocode')),
-            ]);
-
-        if (!$promocode || $promocode->getParticipant()) {
-            throw $this->createNotFoundException("Invalid code");
-        }
-
-        $form = $this->createForm(ParticipantFormType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            /** @var Participant $participant */
-            $participant = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($participant);
-            $entityManager->flush();
-
-            $promocode->setParticipant($participant);
-            $entityManager->flush();
-
-            $this->sendEmails($mailer, $participant);
-        }
-
-        return $this->redirectToRoute('index');
     }
 
     private function sendEmails(\Swift_Mailer $mailer, Participant $participant)
@@ -143,7 +166,7 @@ class DefaultController extends AbstractController
             ->setTo($participant->getEmail())
             ->setBody(
                 $this->renderView(
-                    'emails/participant.html.twig',
+                    'emails/participant.txt.twig',
                     [
                         'name' => $participant->getFullName(),
                         'address' => $participant->getFullAddress(),
@@ -161,7 +184,7 @@ class DefaultController extends AbstractController
             ->setTo('prilipaly4@gmail.com')
             ->setBody(
                 $this->renderView(
-                    'emails/manager.html.twig',
+                    'emails/manager.txt.twig',
                     [
                         'name' => $participant->getFullName(),
                         'address' => $participant->getFullAddress(),
