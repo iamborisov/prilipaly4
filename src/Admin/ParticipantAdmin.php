@@ -24,6 +24,7 @@ final class ParticipantAdmin extends AbstractAdmin
     {
         $datagridMapper
 			->add('id')
+            ->add('promocode.code')
             ->add('name')
             ->add('surname')
             ->add('patronymic')
@@ -36,6 +37,7 @@ final class ParticipantAdmin extends AbstractAdmin
     {
         $listMapper
 			->add('id')
+            ->add('promocode.code')
             ->add('name')
             ->add('surname')
             ->add('patronymic')
@@ -56,6 +58,7 @@ final class ParticipantAdmin extends AbstractAdmin
     {
         $showMapper
 			->add('id')
+            ->add('promocode.code')
             ->add('name')
             ->add('surname')
             ->add('patronymic')

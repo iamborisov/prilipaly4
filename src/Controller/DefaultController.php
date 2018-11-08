@@ -43,8 +43,8 @@ class DefaultController extends AbstractController
                 'go' => $this->getGoCode($geo),
                 'city' => $geo,
                 'area' => $geo->getArea(),
-                'region' => $geo->getArea()->getRegion()
-            ]
+                'region' => $geo->getArea()->getRegion(),
+            ],
         ]);
     }
 
@@ -72,7 +72,7 @@ class DefaultController extends AbstractController
         return new JsonResponse([
             'result' => 'ok',
             'gocodeName' => $this->getGoCode($geo),
-            'shopsArr' => $this->getShops($cache, $geo)
+            'shopsArr' => $this->getShops($cache, $geo),
         ]);
     }
 
@@ -89,7 +89,7 @@ class DefaultController extends AbstractController
 
         return new JsonResponse([
             'result' => 'ok',
-            'products' => $this->getProducts($cache, $region)
+            'products' => $this->getProducts($cache, $region),
         ]);
     }
 
@@ -188,6 +188,7 @@ class DefaultController extends AbstractController
                     [
                         'name' => $participant->getFullName(),
                         'address' => $participant->getFullAddress(),
+                        'code' => $participant->getPromocode()->getCode()
                     ]
                 ),
                 'text/html'
